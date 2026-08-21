@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import logo from "../assets/Logo.jpeg"
 import milosConceptSprites from "../assets/Milos Concept Sprites.jpeg";
 import npcConceptArt from "../assets/NPC Concept Art.jpeg";
@@ -36,11 +37,11 @@ import background from '../assets/background.svg';
 			<h4>
 				Milos Sprite Art:
 			</h4>
-			<img src={milosConceptSprites.src} width="410" height="320" alt="Milos Art" />
+			<Image src={milosConceptSprites} width="410" height="350" alt="Milos Art" />
 			<h4>
 				NPC Concept Art:
 			</h4>
-			<img src={npcConceptArt.src} width="410" height="220" alt="NPC Concept Art"/>
+			<Image src={npcConceptArt} width="410" height="220" alt="NPC Concept Art"/>
 		</section>
 
 		<section id="links">
@@ -117,7 +118,7 @@ import background from '../assets/background.svg';
 		display: none;
 		position: absolute;
 		top: 100%;
-		right: -18px;
+		right: -19px;
 		padding: 0;
 		margin: 0;
 		list-style: none;
