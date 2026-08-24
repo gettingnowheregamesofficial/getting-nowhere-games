@@ -1,19 +1,24 @@
 ---
-import { Image } from "astro:assets";
 import logo from "../assets/Logo.jpeg"
 import milosConceptSprites from "../assets/Milos Concept Sprites.jpeg";
 import npcConceptArt from "../assets/NPC Concept Art.jpeg";
-import background from '../assets/background.svg';
+import discordLogo from "../assets/Discord.png"
+import background from '../assets/background.png';
+import Image from "astro/components/Image.astro";
 ---
 
 <div id="container">
 	<img id="background" src={background.src} alt="" fetchpriority="high" />
 	<main>
 		<section id="nav-bar">
-			<img src={logo.src} width="60" height="60" alt="Logo"/>
-			<h1>
-				Getting Nowhere Games
-			</h1>
+
+			<div class="nav-left">
+				<img src={logo.src} width="45" height="45" alt="Logo"/>
+				<h1>
+					Getting Nowhere Games
+				</h1>
+			</div>
+
 			<div class="menu">
 				<button class="menu-button" id="menuBtn">
 					☰
@@ -26,7 +31,9 @@ import background from '../assets/background.svg';
     				<li><a href="#wishlist">Wishlist</a></li>
 				</ul>
 			</div>
+
 		</section>
+
 		<section id="hero">
 			<h2>
 				Presented by Getting Nowhere Games:
@@ -37,241 +44,213 @@ import background from '../assets/background.svg';
 			<h4>
 				Milos Sprite Art:
 			</h4>
-			<Image src={milosConceptSprites} width="410" height="350" alt="Milos Art" />
+			<Image class="responsive-img" src={milosConceptSprites} alt="Milos Art" />
 			<h4>
 				NPC Concept Art:
 			</h4>
-			<Image src={npcConceptArt} width="410" height="220" alt="NPC Concept Art"/>
+			<Image class="responsive-img" src={npcConceptArt} alt="NPC Concept Art"/>
 		</section>
 
 		<section id="links">
-			<a href="https://discord.com"> Join the Discord</a>
+			<a href="https://discord.gg/SZVaYVU6D" target="_blank">
+				<Image src={discordLogo} width="60" height="60" alt="Discord Link"/>
+			</a>
 		</section>
 	</main>
 </div>
 
 <style>
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(0px);
-	}
+  * {
+    box-sizing: border-box;
+  }
 
-	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
-	}
+  #background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
 
-	main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding-top: 75px;
-	}
+  #container {
+    font-family: Inter, Roboto, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
-	#nav-bar {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		width: 100%;
-		height: 70px;
-		background-color:coral;
-		display: flex;
-		z-index: 1000;
-		border-bottom:5px solid #000000;
-	}
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
 
-	#nav-bar img {
-		margin-left: 5px;
-		margin-right: 5px;
-		margin-top: 5px;
-	}
+  #nav-bar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: coral;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    z-index: 1000;
+    border-bottom: 5px solid #000000;
+  }
 
-	#nav-bar h1 {
-		margin-top: 15px;
-		margin-left: 30px;
-	}
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
-	.menu {
-		position: relative;
-		display: inline-block;
-		margin-left: auto;
-		margin-right: 20px;
-		margin-top: -10px;
-	}
+  #nav-bar h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    white-space: nowrap;
+  }
 
-	.menu-button {
-		background-color: transparent;
-		color: #000000;
-		right: 0;
-		border: none;
-		cursor: pointer;
-		font-size: 60px;
-	}
+  .menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
 
-	.menu-items {
-		display: none;
-		position: absolute;
-		top: 100%;
-		right: -19px;
-		padding: 0;
-		margin: 0;
-		list-style: none;
-		background-color: white;
-		border: 3px solid #000000;
-		min-width: max-content;
-	}
+  .menu-button {
+    background-color: transparent;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 0;
+    line-height: 1;
+    display: block;
+  }
 
-	.menu-items li {
-		width: 100%;
-		font-size: 200%;
-		text-align: left;
-		margin-left: 5px;
-		margin-right: 5px;
-	}
+  .menu-items {
+    display: none;
+    position: absolute;
+    top: 140%;
+    right: 0;
+    padding: 8px 0;
+    margin: 0;
+    list-style: none;
+    background-color: white;
+    border: 3px solid #000000;
+    min-width: 160px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+  }
 
-	.menu-items a {
-		text-align: left;
-		display: block;
-	}
+  .menu-items.show {
+    display: block;
+  }
 
-	.menu-items.show {
-		display: block;
-	}
+  .menu-items li {
+    width: 100%;
+    margin: 0;
+  }
 
-	#hero {
-		display: flex;
-		align-items: start;
-		flex-direction: column;
-		justify-content: center;
-		padding: 16px;
-	}
+  .menu-items a {
+    display: block;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-align: left;
+  }
 
-	#hero h2 {
-		position: relative;
-		top: 10px;
-		font-size: 22px;
-		margin-top: 0.25em;
-	}
+  .menu-items a:hover {
+    background-color: #f0f0f0;
+  }
 
-	#hero h3 {
-		align-self: center;
-		color: yellowgreen;
-	}
+  #hero {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+    text-align: center;
+    width: 100%;
+  }
 
-	#hero img {
-		margin-top: 10px;
-	}
+  #hero h2 {
+    font-size: 1.5rem;
+    margin: 1em 0 0.5em;
+  }
 
-	#links {
-		display: flex;
-		gap: 16px;
-	}
+  #hero h3 {
+    color: yellowgreen;
+    font-size: 2rem;
+    margin: 0 0 1.5rem;
+  }
 
-	#links a {
-		display: flex;
-		align-items: center;
-		position: fixed;
-		bottom: 20px;
-		left: 20px;
-		padding: 10px 12px;
-		color:#3245ff;
-		text-decoration: none;
-		transition: color 0.2s;
-	}
+  #hero h4 {
+    margin: 1.5rem 0 0.5rem;
+  }
 
-	#links a:hover {
-		color:#bc52ee;
-	}
+  .responsive-img {
+    width: 100%;
+    height: auto;
+    max-width: 410px;
+    display: block;
+    border-radius: 8px;
+  }
 
-	#links a svg {
-		height: 1em;
-		margin-left: 8px;
-	}
+  #links {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999;
+  }
 
-	#links a.button {
-		color: white;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		box-shadow:
-			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
-	}
+  #links a {
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+  }
 
-	#links a.button:hover {
-		color: rgb(230, 230, 230);
-		box-shadow: none;
-	}
+  #links a:hover {
+    transform: scale(1.1);
+  }
 
-	pre {
-		font-family:
-			ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
-		font-weight: normal;
-		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		margin: 0;
-	}
+  @media screen and (min-width: 768px) {
+    #nav-bar h1 {
+      font-size: 1.75rem;
+    }
 
-	h2 {
-		margin: 0 0 1em;
-		font-weight: normal;
-		color: #111827;
-		font-size: 20px;
-	}
+    .menu-button {
+      display: none;
+    }
 
-	p {
-		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
-		margin: 0;
-	}
+    .menu-items {
+      display: flex !important;
+      position: static;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+    }
 
-	.box {
-		padding: 16px;
-		background: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		border: 1px solid white;
-	}
+    .menu-items li a {
+      color: black;
+      font-weight: bold;
+      padding: 5px 12px;
+    }
 
-	@media screen and (max-height: 368px) {
-		#news {
-			display: none;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		#container {
-			display: flex;
-			flex-direction: column;
-		}
-
-		#hero {
-			display: block;
-			padding-top: 10%;
-		}
-
-		#links {
-			flex-wrap: wrap;
-		}
-
-		#links a.button {
-			padding: 14px 18px;
-		}
-
-		h1 {
-			line-height: 1.5;
-		}
-	}
+    .menu-items li a:hover {
+      background: transparent;
+      text-decoration: underline;
+    }
+  }
 </style>
+
 
 <script>
 	const btn = document.getElementById('menuBtn');
