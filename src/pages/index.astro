@@ -1,8 +1,114 @@
 ---
-import Homepage from '../components/Homepage.astro';
 import Layout from '../layouts/Layout.astro';
----
-
+import trailer from "../assets/Trailer Placeholder.png";
+import discordLogo from "../assets/Discord.png"
+import background from '../assets/background.png';
+import {Image} from "astro:assets";
+	---
+	
 <Layout>
-	<Homepage />
+	<div id="container">
+		<img id="background" src={background.src} alt="" fetchpriority="high" />
+		<main>
+			<section id="trailer">
+				<h2>
+					Getting Nowhere Games presents...
+				</h2>
+				<h3>
+					Sightless Star!
+				</h3>
+				<Image class="responsive-img" src={trailer} alt="Trailer"/>
+			</section>
+	
+			<section id="links">
+				<a href="https://discord.gg/SZVaYVU6D" target="_blank">
+					<Image src={discordLogo} width="60" height="60" alt="Discord Link"/>
+				</a>
+			</section>
+		</main>
+	</div>
+	
+	<style>
+	  * {
+	    box-sizing: border-box;
+	  }
+	
+	  #background {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    z-index: -1;
+	    object-fit: cover;
+	  }
+	
+	  #container {
+	    font-family: Inter, Roboto, sans-serif;
+	    min-height: 100vh;
+	    display: flex;
+	    flex-direction: column;
+	  }
+	
+	  main {
+	    flex: 1;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    width: 100%;
+	    margin: 0 auto;
+	  }
+	
+	  #trailer {
+	    display: flex;
+	    align-items: center;
+	    flex-direction: column;
+	    justify-content: center;
+	    padding: 16px;
+	    text-align: center;
+	    width: 100%;
+	  }
+	
+	  #trailer h2 {
+	    font-size: 1.5rem;
+	    margin: 1em 0 0.5em;
+	  }
+	
+	  #trailer h3 {
+	    color: #FFFFFF;
+	    font-size: 2rem;
+	    margin: 0 0 1.5rem;
+	  }
+	
+	  #trailer h4 {
+	    margin: 1.5rem 0 0.5rem;
+	  }
+	
+	  .responsive-img {
+	    width: 100%;
+	    height: auto;
+	    max-width: 410px;
+	    display: block;
+		border: 8px solid #000000; 
+    	border-radius: 8px;
+	  }
+	
+	  #links {
+	    position: fixed;
+	    bottom: 20px;
+	    left: 20px;
+	    z-index: 999;
+	  }
+	
+	  #links a {
+	    display: flex;
+	    align-items: center;
+	    transition: transform 0.2s;
+	  }
+	
+	  #links a:hover {
+	    transform: scale(1.1);
+	  }
+	</style>
 </Layout>
+	
