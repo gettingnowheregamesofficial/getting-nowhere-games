@@ -1,0 +1,162 @@
+---
+import logo from "../assets/Logo.jpeg"
+---
+
+<nav id="nav-bar">
+    <div class="nav-left">
+        
+        <img src={logo.src} width="45" height="45" alt="Logo"/>
+		
+        <h1>
+			Getting Nowhere Games
+		
+        </h1>
+	</div>
+
+	<div class="menu">
+		
+        <button class="menu-button" id="menuBtn">
+			☰
+		</button>
+
+		<ul class="menu-items" id="menuItems">
+			<li><a href="/#info">Info</a></li>
+			<li><a href="/#art">Art</a></li>
+			<li><a href="/#support">Support</a></li>
+			<li><a href="/#wishlist">Wishlist</a></li>
+		</ul>
+
+	</div>
+
+</nav>
+
+<style>
+    #nav-bar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: coral;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    z-index: 1000;
+    border-bottom: 5px solid #000000;
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #nav-bar h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-button {
+    background-color: transparent;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 0;
+    line-height: 1;
+    display: block;
+  }
+
+  .menu-items {
+    display: none;
+    position: absolute;
+    top: 140%;
+    right: 0;
+    padding: 8px 0;
+    margin: 0;
+    list-style: none;
+    background-color: white;
+    border: 3px solid #000000;
+    min-width: 160px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .menu-items.show {
+    display: block;
+  }
+
+  .menu-items li {
+    width: 100%;
+    margin: 0;
+  }
+
+  .menu-items a {
+    display: block;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-align: left;
+  }
+
+  .menu-items a:hover {
+    background-color: #f0f0f0;
+  }
+
+  @media screen and (min-width: 768px) {
+    #nav-bar h1 {
+      font-size: 1.75rem;
+    }
+
+    .menu-button {
+      display: none;
+    }
+
+    .menu-items {
+      display: flex !important;
+      position: static;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    .menu-items li a {
+      color: black;
+      font-weight: bold;
+      padding: 5px 12px;
+    }
+
+    .menu-items li a:hover {
+      background: transparent;
+      text-decoration: underline;
+    }
+  }
+</style>
+
+<script>
+	const btn = document.getElementById('menuBtn');
+	const menu = document.getElementById('menuItems');
+
+	// 1. Toggle menu when clicking the button itself
+	btn?.addEventListener('click', (event) => {
+		event.stopPropagation(); // Stops click from triggering the window listener below
+		menu?.classList.toggle('show');
+  	});
+
+	// 2. Close the menu when clicking ANYWHERE outside of it
+  	window.addEventListener('click', (event) => {
+    	const target = event.target as HTMLElement;
+    
+    	// If the click is outside the menu and outside the button, close it
+    	if (menu && !menu.contains(target) && target !== btn) {
+    	  menu.classList.remove('show');
+    	}
+  	});
+</script>
