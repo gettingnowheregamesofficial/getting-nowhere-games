@@ -1,5 +1,7 @@
 ---
 import discordLogo from "../assets/Discord.png"
+import instaLogo from "../assets/Instagram.png";
+import redditLogo from "../assets/Reddit.png";
 import {Image} from "astro:assets";
 ---
 
@@ -7,14 +9,24 @@ import {Image} from "astro:assets";
 	<a href="https://discord.gg/SZVaYVU6D" target="_blank">
 		<Image src={discordLogo} width="60" height="60" alt="Discord Link"/>
 	</a>
+
+    <a href="https://www.instagram.com/gettingnowheregames/">
+        <Image src={instaLogo} width="60" height="60" alt="Instagram Link"/>
+    </a>
+
+    <a href="https://www.reddit.com/r/SightlessStar/">
+        <Image src={redditLogo} width="60" height="60" alt="Reddit Link"/>
+    </a>
 </section>
 
 <style>
     #links {
 	    position: fixed;
 	    bottom: 20px;
-	    left: 20px;
+	    left: 30px;
 	    z-index: 999;
+        display: flex;
+        gap: 30px;
 	  }
 	
 	  #links a {
@@ -26,4 +38,9 @@ import {Image} from "astro:assets";
 	  #links a:hover {
 	    transform: scale(1.1);
 	  }
+
+      #links Image {
+        width: 60px;
+        height: 60px;
+      }
 </style>
