@@ -1,6 +1,8 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import Navbar from "../components/Navbar.astro";
+import Socials from "../components/Socials.astro";
+import Background from "../components/Background.astro";
 ---
 
 <!doctype html>
@@ -16,7 +18,9 @@ import Navbar from "../components/Navbar.astro";
 	</head>
 	<body>
 		<Navbar />
+		<Background />
 		<slot />
+		<Socials />
 	</body>
 </html>
 

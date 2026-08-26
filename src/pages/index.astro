@@ -1,14 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import trailer from "../assets/Trailer Placeholder.png";
-import discordLogo from "../assets/Discord.png"
-import background from '../assets/background.png';
 import {Image} from "astro:assets";
 	---
 	
 <Layout>
 	<div id="container">
-		<img id="background" src={background.src} alt="" fetchpriority="high" />
 		<main>
 			<section id="trailer">
 				<h2>
@@ -18,12 +15,6 @@ import {Image} from "astro:assets";
 					Sightless Star!
 				</h3>
 				<Image class="responsive-img" src={trailer} alt="Trailer"/>
-			</section>
-	
-			<section id="links">
-				<a href="https://discord.gg/SZVaYVU6D" target="_blank">
-					<Image src={discordLogo} width="60" height="60" alt="Discord Link"/>
-				</a>
 			</section>
 		</main>
 	</div>
@@ -91,23 +82,6 @@ import {Image} from "astro:assets";
 	    display: block;
 		border: 8px solid #000000; 
     	border-radius: 8px;
-	  }
-	
-	  #links {
-	    position: fixed;
-	    bottom: 20px;
-	    left: 20px;
-	    z-index: 999;
-	  }
-	
-	  #links a {
-	    display: flex;
-	    align-items: center;
-	    transition: transform 0.2s;
-	  }
-	
-	  #links a:hover {
-	    transform: scale(1.1);
 	  }
 	</style>
 </Layout>
