@@ -7,15 +7,15 @@ import {Image} from "astro:assets";
 
 <section id="links">
 	<a href="https://discord.gg/SZVaYVU6D" target="_blank">
-		<Image src={discordLogo} width="60" height="60" alt="Discord Link"/>
+		<Image src={discordLogo} width="60" height="60" loading="eager" alt="Discord Link"/>
 	</a>
 
     <a href="https://www.instagram.com/gettingnowheregames/">
-        <Image src={instaLogo} width="60" height="60" alt="Instagram Link"/>
+        <Image src={instaLogo} width="60" height="60" loading="eager" alt="Instagram Link"/>
     </a>
 
     <a href="https://www.reddit.com/r/SightlessStar/">
-        <Image src={redditLogo} width="60" height="60" alt="Reddit Link"/>
+        <Image src={redditLogo} width="60" height="60" loading="eager" alt="Reddit Link"/>
     </a>
 </section>
 
@@ -38,9 +38,4 @@ import {Image} from "astro:assets";
 	  #links a:hover {
 	    transform: scale(1.1);
 	  }
-
-      #links Image {
-        width: 60px;
-        height: 60px;
-      }
 </style>
