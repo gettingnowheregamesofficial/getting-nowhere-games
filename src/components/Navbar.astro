@@ -142,16 +142,17 @@ import logo from "../assets/Logo.jpeg"
 </style>
 
 <script>
-	const btn = document.getElementById('menuBtn');
-	const menu = document.getElementById('menuItems');
+  document.addEventListener('astro:page-load', () => {
+	  const btn = document.getElementById('menuBtn');
+	  const menu = document.getElementById('menuItems');
 
-	// 1. Toggle menu when clicking the button itself
-	btn?.addEventListener('click', (event) => {
-		event.stopPropagation(); // Stops click from triggering the window listener below
-		menu?.classList.toggle('show');
+	  // 1. Toggle menu when clicking the button itself
+	  btn?.addEventListener('click', (event) => {
+		  event.stopPropagation(); // Stops click from triggering the window listener below
+		  menu?.classList.toggle('show');
   	});
 
-	// 2. Close the menu when clicking ANYWHERE outside of it
+	  // 2. Close the menu when clicking ANYWHERE outside of it
   	window.addEventListener('click', (event) => {
     	const target = event.target as HTMLElement;
     
@@ -160,4 +161,5 @@ import logo from "../assets/Logo.jpeg"
     	  menu.classList.remove('show');
     	}
   	});
+  });
 </script>
